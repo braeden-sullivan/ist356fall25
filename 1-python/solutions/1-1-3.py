@@ -9,4 +9,10 @@ otherwise we want it closed
 
 write code to simulate this
 '''
+pressure = float(input("Enter the pressure reading: "))
+if pressure > 10:
+    print("Door is open")
+else:
+    print("Door is closed")
+
 

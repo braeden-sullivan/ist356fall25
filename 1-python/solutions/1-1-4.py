@@ -11,4 +11,17 @@ Write a program to input the number grade and calculate the letter grade
 
 Re-write to account for "bad" grades > 120 or < 0
 '''
-
+try:
+    grade = float(input("Enter the number grade: "))
+    if grade > 100 or grade < 0:
+        print("Error: Grade must be between 0 and 120.")
+    elif grade >= 95:
+        print("Letter grade is A")
+    elif grade >= 75:
+        print("Letter grade is B")
+    elif grade >= 50:
+        print("Letter grade is C")
+    else:
+        print("Letter grade is F") 
+except ValueError:
+    print("Invalid input. Please enter a numeric value for the grade.")
