@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 [{"name": "tom", "grade": 10.0}, {"name": "jerry", "grade": 20.0}, {"name": "amy", "grade": 30.0}]
+=======
+[{"name": "mike", "gpa": 3.4}, {"name": "noel", "gpa": 3.2}, {"name": "peter", "gpa": 3.8}]
+>>>>>>> cdd60852901035171f503cea7a12809e83283a81
