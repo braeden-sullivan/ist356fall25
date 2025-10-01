@@ -24,7 +24,7 @@ if 'history' not in st.session_state:
 # widget setup
 st.title('Order Total Calculator')
 st.write("Add amounts to the total and see the history of entries")
-amount = st.number_input('Enter the amount to add:', min_value=0.0, step=0.1)
+amount = st.number_input('Enter the amount to add:')
 add_clicked = st.button('Add to Total', type='primary')
 clear_clicked = st.button('Clear', type='secondary')
 
@@ -41,5 +41,4 @@ elif add_clicked:
 
 # display session state, after interations
 st.write(f'Total: {st.session_state.total}')
-st.write(f'History of amounts added: {st.session_state.history}')
-
+st.write(f'History: {st.session_state.history}')
