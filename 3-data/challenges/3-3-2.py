@@ -16,3 +16,28 @@ It then outputs a dataframe of customers who did not buy anything in that month.
 Access the raw data from this base url: `https://raw.githubusercontent.com/mafudge/datasets/refs/heads/master/minimart/`
 '''
 
+import streamlit as st
+import pandas as pd
+
+@st.cache_data
+def load_data(month):
+    url = f"https://raw.githubusercontent.com/mafudge/datasets/refs/heads/master/minimart/{month}.csv"
+    data = pd.read_csv(url)
+    return data
+
+st.title("Minimart Customer Analysis")
+st.write("Select a month to see customers who did not buy anything.")
+month = st.selectbox("Select Month", ["jan", "feb", "mar", "apr"])
+data = load_data(month)
+st.write(f"Data for {month.capitalize()}:")
+st.dataframe(data)
+all_customers = pd.DataFrame({
+    'customer_id': range(1, 21),
+    'customer_name': [f'Customer {i}' for i in range(1, 21)]
+})
+
+bought_customers = data['customer_id'].unique()
+not_bought_customers = all_customers[~all_customers['customer_id'].isin(bought_customers)]
+st.write(f"Customers who did not buy anything in {month.capitalize()}:")
+st.dataframe(not_bought_customers)
+st.write(f"Total customers who did not buy: {len(not_bought_customers)}")
